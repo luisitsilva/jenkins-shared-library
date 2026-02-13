@@ -10,9 +10,9 @@ def call() {
             )
     ]) {
 
-        sh 'docker build -t luititsilva/java-maven-app:5.0 .'
+        sh 'docker build -t luititsilva/java-maven-app:155.0 .'
 
-        sh 'docker build -t luititsilva/java-maven-app:6.0 .'
+        sh 'docker build -t luititsilva/java-maven-app:655.0 .'
 
 
         sh '''
@@ -20,9 +20,9 @@ def call() {
         '''
 
 
-        sh 'docker push luititsilva/java-maven-app:5.0'
+        sh 'docker push luititsilva/java-maven-app:155.0'
 
-        sh 'docker push luititsilva/java-maven-app:6.0'
+        sh 'docker push luititsilva/java-maven-app:655.0'
 
     }
 }
