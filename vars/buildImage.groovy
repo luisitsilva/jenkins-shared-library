@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def call() {
+def call(String imageName) {
     echo "building the docker image..."
     withCredentials([
             usernamePassword(
@@ -10,19 +10,13 @@ def call() {
             )
     ]) {
 
-        sh 'docker build -t luititsilva/java-maven-app:155.0 .'
-
-        sh 'docker build -t luititsilva/java-maven-app:655.0 .'
-
+        sh "docker build -t $imageName ."
 
         sh '''
           echo $PASS | docker login -u "$USER" --password-stdin
         '''
 
-
-        sh 'docker push luititsilva/java-maven-app:155.0'
-
-        sh 'docker push luititsilva/java-maven-app:655.0'
+        sh "docker push $imageName"
 
     }
 }
